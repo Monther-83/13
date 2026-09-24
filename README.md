@@ -1,7 +1,8 @@
 Exploit Host MONTHER SONEEY
-PS4 Firmwares:  13.00
+PS4 Firmwares: 5.05 TO 13.52 ALL IN ONE
 
-PS4 Firmwares: 13.00 
+PS4 Firmwares: 5.05 TO 13.52 ALL IN ONE
+
 
 Steps:
 In the console browser go to: https://monther-83.github.io/13
