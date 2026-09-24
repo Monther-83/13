@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html manifest="slopkit.manifest">
+<head>
+<title>منذر سونيي لصيانة الأجهزة الإلكترونية بصرة عشار شارع الكويت 009647700672595</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<script>
+history.replaceState(null,null,'index.html');var histlength=history.length;history.go(-histlength);
+function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="جارٍ تثبيت التخزين المؤقت: " + Percent + "%";}
+function DisplayCacheProgress(){window.msgs.innerHTML="تم تثبيت التخزين المؤقت بنجاح ✔";setTimeout(function(){window.msgs.innerHTML="أغلق المتصفح وأعد فتحه الآن ...";},1500);}
+window.applicationCache.addEventListener("progress",DLProgress,false);
+window.applicationCache.oncached=function(e){DisplayCacheProgress();};
+window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+window.applicationCache.onerror=function(e){window.msgs.innerHTML="حدث خطأ أثناء التثبيت! امسح بيانات المتصفح وأعد فتحه ...";};
+</script>
+<h1>هذا المتصفح يدعم جميع إصدارات بلايستيشن 4 من نظام 5.05 إلى نظام 13.52
+</h1>
+<hr>
+<br>
+<div id="loader" aria-label="جارٍ التحميل"><span></span></div>
+<h1 id="msgs" style="font-size: 30px;margin-top: 77px;margin-bottom: 455px;">جارٍ بدء تثبيت الملفات ...</h1>
+
+</body>
+</html>
