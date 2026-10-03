@@ -1,3 +1,14 @@
+html {
+    background-image: url('img.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #24272b;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
 
 
 
