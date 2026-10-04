@@ -1,0 +1,120 @@
+/* MONTHER SONEEY — Arabic Calm Circuit UI
+   Visual/UI layer only. Existing exploit scripts and paths are preserved. */
+
+html {
+    background-image: url('img.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #020711;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    direction: rtl;
+}
+
+h1 {
+    text-shadow: 0 0 4px #fff, 0 0 12px rgba(75,170,255,.75);
+    font-size: 25px;
+    color: #fff;
+}
+
+body > h1:not(#msgs), body > hr, body > br {
+    display: none !important;
+}
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: auto;
+    bottom: 92px;
+    transform: translateX(-50%);
+    width: 66px;
+    height: 66px;
+    border: 5px solid rgba(255,255,255,.18);
+    border-top-color: #f4bd55;
+    border-right-color: #168dff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(22,141,255,.8));
+    z-index: 4;
+}
+
+#loader span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-bottom-color: #fff;
+    animation: spinReverse .7s linear infinite;
+    box-sizing: border-box;
+}
+
+@keyframes spin {
+    to { transform: translateX(-50%) rotate(360deg); }
+}
+
+@keyframes spinReverse {
+    to { transform: rotate(-360deg); }
+}
+
+#msgs {
+    position: absolute;
+    left: 50%;
+    top: 61%;
+    transform: translate(-50%, -50%);
+    width: min(86vw, 1000px);
+    margin: 0 !important;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    font-size: clamp(24px, 2.5vw, 38px) !important;
+    font-weight: 700;
+    line-height: 1.45;
+    text-shadow: 0 0 3px #fff, 0 0 12px #168dff, 0 0 22px rgba(244,189,85,.65);
+    z-index: 5;
+}
+
+a { text-decoration: none; }
+#progress, #menu { display: block; }
+#crypto, #tools, #lnx, #mods { display: none; }
+
+.btn {
+    background: linear-gradient(135deg, #061a35, #063d78);
+    color: white;
+    width: 227px;
+    height: 46px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 20px;
+    margin: 8px 5px;
+    border: 1px solid rgba(77,183,255,.8);
+    transition: .25s ease;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(22,141,255,.35);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #0b4d91, #168dff);
+    box-shadow: 0 0 18px rgba(77,183,255,.85);
+}
+.btn-onln { background-color: #076300; }
+.btn-toolbox { background-color: #ae2301; }
+.btn-multi { background-color: #b8860b; }
