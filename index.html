@@ -92,7 +92,7 @@
 
 <!-- ✅ الصورة في الأعلى -->
 <div class="logo-container">
-    <img src="img.jpg" alt="منذر سونيي لصيانة الأجهزة الإلكترونية" 
+    <img src="img.jpg" alt="منذر سونيي لصيانة الأجهزة الإلكترونية"
          onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22><rect width=%22400%22 height=%22200%22 fill=%22%23003366%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2224%22 text-anchor=%22middle%22 dy=%22.3em%22>منذر سونيي</text></svg>';">
 </div>
 
@@ -115,10 +115,6 @@
         if (loader) loader.style.display = "none";
     }
 
-    function setSuccess(html) {
-        if (msgs) msgs.innerHTML = '<span style="color:#00ff88;">' + html + '</span>';
-    }
-
     function onScriptError() {
         setMessage('<div class="error-box">⚠️ تعذر العثور على المحتوى!<br>امسح بيانات المتصفح وأعد تثبيت الملفات ...</div>');
     }
@@ -134,11 +130,10 @@
     console.log("[HOST] User Agent:", uaFull);
     console.log("[HOST] Is PS4:", isPS4);
     console.log("[HOST] FW Version:", fwVersion);
-    console.log("[HOST] FW Number:", fwNum);
     console.log("[HOST] URL:", window.location.href);
     console.log("========================================");
 
-    // ===== تسجيل Service Worker إن كان مدعومًا =====
+    // ===== تسجيل Service Worker (للتخزين على GitHub) =====
     if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("sw.js")
             .then(function (reg) {
@@ -149,6 +144,17 @@
             });
     } else {
         console.log("[SW] ❌ Not supported");
+    }
+
+    // ===== فحص AppCache (للمتصفحات القديمة فقط) =====
+    var appCacheStatus = -1;
+    try {
+        if (window.applicationCache) {
+            appCacheStatus = window.applicationCache.status;
+            console.log("[AppCache] Status:", appCacheStatus);
+        }
+    } catch (e) {
+        console.warn("[AppCache] Error:", e);
     }
 
     // ===== إذا لم يكن PS4 =====
@@ -181,7 +187,8 @@
         console.log("[HOST] 📥 Loading:", src);
     }
 
-    // ===== تشغيل الإكسبلويت حسب الإصدار =====
+    // ===== تشغيل الإكسبلويت مباشرة (بدون إعادة توجيه) =====
+    // هذا هو الإصلاح الأساسي: لا نعيد التوجيه حتى لو كان AppCache فارغًا
     if (fwNum === 5.05 || fwNum === 5.07) {
         loadScript("505/exploit.js");
     }
