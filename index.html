@@ -1,120 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>منذر سونيي لصيانة الأجهزة الإلكترونية بصرة عشار شارع الكويت 009647700672595</title>
 <link rel="stylesheet" href="../style.css">
-
 </head>
 <body>
-<script>
-history.replaceState(null,null,'index.html');var histlength=history.length;history.go(-histlength);
-function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="جارٍ تثبيت التخزين المؤقت: " + Percent + "%";}
-function DisplayCacheProgress(){window.msgs.innerHTML="تم تثبيت التخزين المؤقت بنجاح ✔";setTimeout(function(){window.msgs.innerHTML="أغلق المتصفح وأعد فتحه الآن ...";},1500);}
-window.applicationCache.addEventListener("progress",DLProgress,false);
-window.applicationCache.oncached=function(e){DisplayCacheProgress();};
-window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
-window.applicationCache.onerror=function(e){window.msgs.innerHTML="حدث خطأ أثناء التثبيت! امسح بيانات المتصفح وأعد فتحه ...";};
-</script>
-    
-</head>
-<body>
-<script>
-var uaFull = navigator.userAgent;
-var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
-var isPS4 = match !== null;
-var fwVersion = isPS4 ? match[1] : "Unknown";
-var fwNum = parseFloat(fwVersion);
 
-function onScriptError() {
-    msgs.innerHTML = "تعذر العثور على المحتوى! امسح بيانات المتصفح وأعد تثبيت الملفات ...";
-
-} else {
-    if (window.applicationCache.status == '0') {
-        if (fwNum == 5.05 || fwNum == 5.07) {
-            window.location.replace("cache505.html");
-        } else if (fwNum >= 7.00 && fwNum <= 8.52) {
-            window.location.replace("cache700.html");
-        } else if (fwNum >= 9.00 && fwNum <= 9.60) {
-            window.location.replace("cache900.html");
-        } else if (fwNum >= 10.00 && fwNum <= 11.02) {
-            window.location.replace("cachecss.html");
-        } else if (fwNum >= 11.50 && fwNum <= 13.52) {
-            window.location.replace("cacheslopkit.html");
-        } else {
-            document.addEventListener("DOMContentLoaded", () => {
-                msgs.innerHTML = 'إصدار النظام غير مدعوم: <span style="color: red;">' + fwVersion + '</span>';
-            });
-        }
-    } else {
-        if (fwNum == 5.05 || fwNum == 5.07) {
-            var script = document.createElement('script');
-            script.src = "505/exploit.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 7.00 && fwNum <= 8.52) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "700/alert.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 9.00 && fwNum <= 9.60) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "900/alert.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 10.00 && fwNum <= 11.02) {
-            var script = document.createElement('script');
-            script.src = "css/main.js";
-            script.onerror = onScriptError;
-            script.onload = function () {
-                setTimeout(function () {
-                    doJb();
-                }, 500);
-            };
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 11.50 && fwNum <= 12.02) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "slopkit/chain_lapse.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 12.50 && fwNum <= 13.00) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "slopkit/chain_poops.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 13.02 && fwNum <= 13.52) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "slopkit/jb.js?v=10";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-    }
-}
-</script>
-
+<h1>هذا المتصفح يدعم جميع إصدارات بلايستيشن 4 من نظام 5.05 إلى نظام 13.52</h1>
 <hr>
 <br>
 <div id="loader" aria-label="جارٍ التحميل"><span></span></div>
-<h1 id="msgs" style="font-size: 30px;margin-top: 77px;margin-bottom: 455px;">جارٍ تحميل GoldHEN v2.4b18.12 ... يرجى الانتظار</h1>
+<h1 id="msgs" style="font-size: 30px; margin-top: 77px; margin-bottom: 455px;">
+    جارٍ تحميل GoldHEN v2.4b18.12 ... يرجى الانتظار
+</h1>
+
+<script>
+(function () {
+    "use strict";
+
+    // ===== انتظر تحميل DOM بالكامل =====
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var msgs = document.getElementById("msgs");
+
+        function setMessage(html) {
+            if (msgs) msgs.innerHTML = html;
+        }
+
+        function onScriptError() {
+            setMessage("تعذر العثور على المحتوى! امسح بيانات المتصفح وأعد تثبيت الملفات ...");
+        }
+
+        // ===== كشف إصدار PS4 =====
+        var uaFull = navigator.userAgent || "";
+        var match = uaFull.match(/PlayStation 4[ \/]([\d.]+)/i);
+        var isPS4 = match !== null;
+        var fwVersion = isPS4 ? match[1] : "Unknown";
+        var fwNum = isPS4 ? parseFloat(fwVersion) : NaN;
+
+        // ===== إذا لم يكن الجهاز PS4 =====
+        if (!isPS4) {
+            setMessage("هذا الهوست مخصص لجهاز PS4 بإصدارات 5.05 و 7.00 إلى 13.52");
+            return;
+        }
+
+        // ===== إذا تعذر قراءة الإصدار =====
+        if (isNaN(fwNum)) {
+            setMessage('تعذر تحديد إصدار النظام. الإصدار المكتشف: <span style="color: red;">' + fwVersion + '</span>');
+            return;
+        }
+
+        // ===== دالة مساعدة لإضافة سكربت =====
+        function loadScript(src, opts) {
+            opts = opts || {};
+            var script = document.createElement("script");
+            if (opts.module) script.type = "module";
+            script.src = src;
+            script.onerror = onScriptError;
+            if (opts.onload) script.onload = opts.onload;
+            document.head.appendChild(script);
+        }
+
+        // ===== فحص حالة الكاش =====
+        var cacheStatus = 0;
+        try {
+            cacheStatus = window.applicationCache ? window.applicationCache.status : 0;
+        } catch (e) {
+            cacheStatus = 0;
+        }
+
+        var isCacheReady = (cacheStatus !== 0);
+
+        // ===== حالة عدم وجود كاش: إعادة توجيه لصفحة الكاش المناسبة =====
+        if (!isCacheReady) {
+            if (fwNum === 5.05 || fwNum === 5.07) {
+                window.location.replace("cache505.html");
+            } else if (fwNum >= 7.00 && fwNum <= 8.52) {
+                window.location.replace("cache700.html");
+            } else if (fwNum >= 9.00 && fwNum <= 9.60) {
+                window.location.replace("cache900.html");
+            } else if (fwNum >= 10.00 && fwNum <= 11.02) {
+                window.location.replace("cachecss.html");
+            } else if (fwNum >= 11.50 && fwNum <= 13.52) {
+                window.location.replace("cacheslopkit.html");
+            } else {
+                setMessage('إصدار النظام غير مدعوم: <span style="color: red;">' + fwVersion + '</span>');
+            }
+            return;
+        }
+
+        // ===== حالة وجود كاش: تشغيل الإكسبلويت المناسب =====
+        if (fwNum === 5.05 || fwNum === 5.07) {
+            loadScript("505/exploit.js");
+        }
+        else if (fwNum >= 7.00 && fwNum <= 8.52) {
+            loadScript("700/alert.js", { module: true });
+        }
+        else if (fwNum >= 9.00 && fwNum <= 9.60) {
+            loadScript("900/alert.js", { module: true });
+        }
+        else if (fwNum >= 10.00 && fwNum <= 11.02) {
+            loadScript("css/main.js", {
+                onload: function () {
+
+منذر آسيا جديد, [04/10/2026 06:19 ص]
+setTimeout(function () {
+                        if (typeof window.doJb === "function") {
+                            window.doJb();
+                        } else {
+                            console.warn("doJb() غير معرّفة بعد تحميل css/main.js");
+                        }
+                    }, 500);
+                }
+            });
+        }
+        else if (fwNum >= 11.50 && fwNum <= 12.02) {
+            loadScript("slopkit/chain_lapse.js", { module: true });
+        }
+        else if (fwNum >= 12.50 && fwNum <= 13.00) {
+            loadScript("slopkit/chain_poops.js", { module: true });
+        }
+        else if (fwNum >= 13.02 && fwNum <= 13.52) {
+            loadScript("slopkit/jb.js?v=10", { module: true });
+        }
+        else {
+            setMessage('إصدار النظام غير مدعوم: <span style="color: red;">' + fwVersion + '</span>');
+        }
+    });
+})();
+</script>
 
 </body>
 </html>
-<style>
-body {
-    margin: 0;
-    background-image: url("img.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-</style>
