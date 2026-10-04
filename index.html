@@ -16,6 +16,11 @@ function onScriptError() {
     msgs.innerHTML = "تعذر العثور على المحتوى! امسح بيانات المتصفح وأعد تثبيت الملفات ...";
 }
 
+if (!isPS4) {
+    document.addEventListener("DOMContentLoaded", () => {
+        msgs.innerHTML = "هذا الهوست مخصص لجهاز PS4 بإصدارات 5.05 و 7.00 إلى 13.52";
+    });
+} else {
     if (window.applicationCache.status == '0') {
         if (fwNum == 5.05 || fwNum == 5.07) {
             window.location.replace("cache505.html");
@@ -88,18 +93,12 @@ function onScriptError() {
     }
 }
 </script>
+<h1>هذا المتصفح يدعم جميع إصدارات بلايستيشن 4 من نظام 5.05 إلى نظام 13.52
+</h1>
 <hr>
 <br>
 <div id="loader" aria-label="جارٍ التحميل"><span></span></div>
-</script>
+<h1 id="msgs" style="font-size: 30px;margin-top: 77px;margin-bottom: 455px;">جارٍ تحميل GoldHEN v2.4b18.12 ... يرجى الانتظار</h1>
+
 </body>
 </html>
-<style>
-body {
-    margin: 0;
-    background-image: url("img.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-</style>
