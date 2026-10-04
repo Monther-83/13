@@ -2,7 +2,6 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>منذر سونيي لصيانة الأجهزة الإلكترونية بصرة عشار شارع الكويت 009647700672595</title>
 <link rel="stylesheet" href="../style.css">
 <style>
@@ -14,6 +13,7 @@
         margin: 0;
         padding: 20px;
     }
+    /* ✅ تنسيق الصورة */
     .logo-container {
         text-align: center;
         margin: 20px auto;
@@ -41,109 +41,13 @@
         max-width: 80%;
     }
     #msgs {
-        font-size: 26px;
-        margin: 40px auto 60px;
+        font-size: 30px;
+        margin-top: 77px;
+        margin-bottom: 455px;
         text-align: center;
-        padding: 0 20px;
+        padding: 0 15px;
         line-height: 1.8;
         color: #ffcc00;
-        max-width: 900px;
-    }
-    .btn-group {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-        margin: 30px auto;
-        max-width: 900px;
-        padding: 0 15px;
-    }
-    .btn {
-        padding: 18px 35px;
-        font-size: 22px;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: all 0.3s;
-        font-family: Arial, sans-serif;
-        min-width: 200px;
-    }
-    .btn-cache {
-        background: linear-gradient(135deg, #0096ff, #0055aa);
-        color: #fff;
-        box-shadow: 0 4px 15px rgba(0, 150, 255, 0.5);
-    }
-    .btn-cache:hover { transform: scale(1.05); box-shadow: 0 6px 25px rgba(0, 150, 255, 0.8); }
-    .btn-cache:disabled { background: #333; cursor: not-allowed; transform: none; }
-    
-    .btn-clear {
-        background: linear-gradient(135deg, #ff3333, #aa0000);
-        color: #fff;
-        box-shadow: 0 4px 15px rgba(255, 50, 50, 0.5);
-    }
-    .btn-clear:hover { transform: scale(1.05); }
-    
-    .btn-start {
-        background: linear-gradient(135deg, #00cc66, #008844);
-        color: #fff;
-        box-shadow: 0 4px 15px rgba(0, 200, 100, 0.5);
-        font-size: 24px;
-        padding: 22px 50px;
-    }
-    .btn-start:hover { transform: scale(1.05); }
-    .btn-start:disabled { background: #333; cursor: not-allowed; transform: none; }
-
-    #status {
-        font-size: 22px;
-        margin: 20px auto;
-        min-height: 40px;
-        max-width: 900px;
-        padding: 0 15px;
-    }
-    .progress-bar {
-        width: 80%;
-        max-width: 600px;
-        height: 25px;
-        background: #333;
-        border-radius: 15px;
-        margin: 20px auto;
-        overflow: hidden;
-        display: none;
-    }
-    .progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #00d4ff, #00ff88);
-        width: 0%;
-        transition: width 0.3s;
-        border-radius: 15px;
-    }
-    .error-box {
-        background: #4a0000;
-        border: 2px solid #ff0000;
-        padding: 15px;
-        border-radius: 10px;
-        margin: 20px auto;
-        max-width: 800px;
-    }
-    .info-box {
-        background: #002a4a;
-        border: 2px solid #0096ff;
-        padding: 15px;
-        border-radius: 10px;
-        margin: 20px auto;
-        max-width: 800px;
-        font-size: 20px;
-    }
-    .success-box {
-        background: #003a1a;
-        border: 2px solid #00ff88;
-        padding: 15px;
-        border-radius: 10px;
-        margin: 20px auto;
-        max-width: 800px;
-        font-size: 20px;
-        color: #00ff88;
     }
 </style>
 </head>
@@ -152,256 +56,124 @@
 <!-- ✅ الصورة -->
 <div class="logo-container">
     <img src="img.jpg" alt="منذر سونيي"
-         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22><rect width=%22400%22 height=%22200%22 fill=%22%23003366%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22white%22 font-size=%2224%22 text-anchor=%22middle%22 dy=%22.3em%22>منذر سونيي</text></svg>';">
+         onerror="this.onerror=null; this.style.display='none';">
 </div>
-
-<h1>هذا المتصفح يدعم جميع إصدارات بلايستيشن 4 من نظام 5.05 إلى نظام 13.52</h1>
-<hr>
-
-<!-- ✅ أزرار التحكم -->
-<div class="btn-group">
-    <button id="btn-cache" class="btn btn-cache" onclick="installCache()">
-        📥 تثبيت الكاش
-    </button>
-    <button id="btn-clear" class="btn btn-clear" onclick="clearCache()">
-        🗑️ حذف الكاش
-    </button>
-</div>
-
-<!-- ✅ شريط التقدم -->
-<div class="progress-bar" id="progress-bar">
-    <div class="progress-fill" id="progress-fill"></div>
-</div>
-
-<!-- ✅ رسالة الحالة -->
-<div id="status"></div>
-
-<hr>
-
-<!-- ✅ زر تشغيل الإكسبلويت -->
-<div class="btn-group">
-    <button id="btn-start" class="btn btn-start" onclick="startExploit()" disabled>
-        ▶️ تشغيل الإكسبلويت
-    </button>
-</div>
-
-<h1 id="msgs">جارٍ تحميل GoldHEN v2.4b18.12 ... يرجى الانتظار</h1>
 
 <script>
 (function () {
     "use strict";
 
-    var msgs = document.getElementById("msgs");
-    var statusDiv = document.getElementById("status");
-    var progressBar = document.getElementById("progress-bar");
-    var progressFill = document.getElementById("progress-fill");
-    var btnCache = document.getElementById("btn-cache");
-    var btnClear = document.getElementById("btn-clear");
-    var btnStart = document.getElementById("btn-start");
-
-    var CACHE_NAME = "ps4-host-v1";
-
-    var FILES_TO_CACHE = [
-        "./",
-        "index.html",
-        "style.css",
-        "img.jpg",
-        "505/exploit.js",
-        "700/alert.js",
-        "900/alert.js",
-        "css/main.js",
-        "slopkit/chain_lapse.js",
-        "slopkit/chain_poops.js",
-        "slopkit/jb.js"
-    ];
-
-    function setStatus(html) {
-        if (statusDiv) statusDiv.innerHTML = html;
+    // ===== تسجيل Service Worker للحفظ بدون إنترنت =====
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js")
+                .then(function (reg) {
+                    console.log("[SW] ✅ Registered:", reg.scope);
+                })
+                .catch(function (err) {
+                    console.warn("[SW] ⚠️ Failed:", err);
+                });
+        });
+    } else {
+        console.warn("[SW] ❌ Service Worker غير مدعوم");
     }
 
-    function setMessage(html) {
-        if (msgs) msgs.innerHTML = html;
-    }
-
-    // ===== كشف إصدار PS4 =====
-    var uaFull = navigator.userAgent || "";
+    // ===== المنطق الأصلي =====
+    var uaFull = navigator.userAgent;
     var match = uaFull.match(/PlayStation 4[ \/]([\d.]+)/i);
     var isPS4 = match !== null;
     var fwVersion = isPS4 ? match[1] : "Unknown";
-    var fwNum = isPS4 ? parseFloat(fwVersion) : NaN;
+    var fwNum = parseFloat(fwVersion);
 
-    console.log("[HOST] UA:", uaFull);
-    console.log("[HOST] FW:", fwVersion);
-
-    // ===== فحص دعم Service Worker =====
-    var supportsSW = ("serviceWorker" in navigator);
-
-    // ===== تسجيل Service Worker =====
-    if (supportsSW) {
-        navigator.serviceWorker.register("sw.js")
-            .then(function (reg) {
-                console.log("[SW] ✅ Registered:", reg.scope);
-                setStatus('<span style="color:#00ff88;">✅ الكاش جاهز للاستخدام</span>');
-                btnStart.disabled = false;
-            })
-            .catch(function (err) {
-                console.warn("[SW] ⚠️ Failed:", err);
-                setStatus('<span style="color:#ffaa00;">⚠️ الكاش غير مدعوم على هذا المتصفح — استخدم الإنترنت</span>');
-                btnStart.disabled = false;
-            });
-    } else {
-        setStatus('<span style="color:#ffaa00;">⚠️ المتصفح لا يدعم Service Worker — استخدم الإنترنت</span>');
-        btnStart.disabled = false;
+    function onScriptError() {
+        msgs.innerHTML = "تعذر العثور على المحتوى! امسح بيانات المتصفح وأعد تثبيت الملفات ...";
     }
 
-    // ===== تثبيت الكاش يدويًا =====
-    window.installCache = function () {
-        if (!supportsSW) {
-            alert("متصفحك لا يدعم الكاش. استخدم Service Worker.");
-            return;
-        }
-
-        btnCache.disabled = true;
-        progressBar.style.display = "block";
-        setStatus("📥 جارٍ تثبيت الكاش...");
-
-        caches.open(CACHE_NAME).then(function (cache) {
-            var total = FILES_TO_CACHE.length;
-            var done = 0;
-
-            return Promise.all(
-                FILES_TO_CACHE.map(function (url) {
-                    return fetch(url)
-                        .then(function (response) {
-                            if (response.ok) {
-                                return cache.put(url, response);
-                            }
-                        })
-                        .catch(function (err) {
-                            console.warn("[Cache] Failed:", url, err);
-                        })
-                        .then(function () {
-                            done++;
-                            var pct = Math.round((done / total) * 100);
-                            progressFill.style.width = pct + "%";
-                            setStatus("📥 جارٍ التثبيت... " + pct + "% (" + done + "/" + total + ")");
-                        });
-                })
-            );
-        }).then(function () {
-            setStatus('<div class="success-box">✅ تم تثبيت الكاش بنجاح!<br>يمكنك الآن استخدام الهوست بدون إنترنت.</div>');
-            progressBar.style.display = "none";
-            btnCache.disabled = false;
-            btnStart.disabled = false;
-        }).catch(function (err) {
-            console.error("[Cache] Error:", err);
-            setStatus('<div class="error-box">❌ فشل تثبيت الكاش</div>');
-            btnCache.disabled = false;
+    if (!isPS4) {
+        document.addEventListener("DOMContentLoaded", function () {
+            msgs.innerHTML = "هذا الهوست مخصص لجهاز PS4 بإصدارات 5.05 و 7.00 إلى 13.52";
         });
-    };
-
-    // ===== حذف الكاش =====
-    window.clearCache = function () {
-        if (!supportsSW) return;
-
-        if (!confirm("هل أنت متأكد من حذف الكاش؟")) return;
-
-        setStatus("🗑️ جارٍ حذف الكاش...");
-
-        caches.delete(CACHE_NAME).then(function (success) {
-            if (success) {
-                setStatus('<div class="success-box">✅ تم حذف الكاش بنجاح</div>');
+    } else {
+        // فحص AppCache
+        if (window.applicationCache && window.applicationCache.status == '0') {
+            if (fwNum == 5.05 || fwNum == 5.07) {
+                window.location.replace("cache505.html");
+            } else if (fwNum >= 7.00 && fwNum <= 8.52) {
+                window.location.replace("cache700.html");
+            } else if (fwNum >= 9.00 && fwNum <= 9.60) {
+                window.location.replace("cache900.html");
+            } else if (fwNum >= 10.00 && fwNum <= 11.02) {
+                window.location.replace("cachecss.html");
+            } else if (fwNum >= 11.50 && fwNum <= 13.52) {
+                window.location.replace("cacheslopkit.html");
             } else {
-                setStatus('<div class="error-box">⚠️ لا يوجد كاش لحذفه</div>');
+                document.addEventListener("DOMContentLoaded", function () {
+                    msgs.innerHTML = 'إصدار النظام غير مدعوم: <span style="color: red;">' + fwVersion + '</span>';
+                });
             }
-        }).catch(function (err) {
-            console.error(err);
-            setStatus('<div class="error-box">❌ فشل حذف الكاش</div>');
-        });
-    };
-
-    // ===== تشغيل الإكسبلويت =====
-    window.startExploit = function () {
-        btnStart.disabled = true;
-        setMessage("⏳ جارٍ تشغيل الإكسبلويت...");
-
-        if (!isPS4) {
-            setMessage('<div class="info-box">ℹ️ هذا الهوست مخصص لجهاز PS4 بإصدارات 5.05 و 7.00 إلى 13.52</div>');
-            btnStart.disabled = false;
-            return;
-        }
-
-        if (isNaN(fwNum)) {
-            setMessage('<div class="error-box">تعذر تحديد إصدار النظام: ' + fwVersion + '</div>');
-            btnStart.disabled = false;
-            return;
-        }
-
-        function loadScript(src, opts) {
-            opts = opts || {};
-            var script = document.createElement("script");
-            if (opts.module) script.type = "module";
-            script.src = src;
-            script.onerror = function () {
-                console.error("[HOST] ❌ Failed:", src);
-                setMessage('<div class="error-box">⚠️ تعذر تحميل: ' + src + '</div>');
-            };
-            script.onload = function () {
-                console.log("[HOST] ✅ Loaded:", src);
-                if (opts.onload) opts.onload();
-            };
-            document.head.appendChild(script);
-        }
-
-        if (fwNum === 5.05 || fwNum === 5.07) {
-            loadScript("505/exploit.js");
-        }
-        else if (fwNum >= 7.00 && fwNum <= 8.52) {
-            loadScript("700/alert.js", { module: true });
-        }
-        else if (fwNum >= 9.00 && fwNum <= 9.60) {
-            loadScript("900/alert.js", { module: true });
-        }
-        else if (fwNum >= 10.00 && fwNum <= 11.02) {
-            loadScript("css/main.js", {
-                onload: function () {
+        } else {
+            if (fwNum == 5.05 || fwNum == 5.07) {
+                var script = document.createElement('script');
+                script.src = "505/exploit.js";
+                script.onerror = onScriptError;
+                document.head.appendChild(script);
+            }
+            else if (fwNum >= 7.00 && fwNum <= 8.52) {
+                var script = document.createElement('script');
+                script.type = 'module';
+                script.src = "700/alert.js";
+                script.onerror = onScriptError;
+                document.head.appendChild(script);
+            }
+            else if (fwNum >= 9.00 && fwNum <= 9.60) {
+                var script = document.createElement('script');
+                script.type = 'module';
+                script.src = "900/alert.js";
+                script.onerror = onScriptError;
+                document.head.appendChild(script);
+            }
+            else if (fwNum >= 10.00 && fwNum <= 11.02) {
+                var script = document.createElement('script');
+                script.src = "css/main.js";
+                script.onerror = onScriptError;
+                script.onload = function () {
                     setTimeout(function () {
-                        if (typeof window.doJb === "function") {
-                            window.doJb();
-                        } else {
-                            setMessage('<div class="error-box">⚠️ دالة doJb غير موجودة</div>');
-                        }
+                        if (typeof doJb === "function") doJb();
                     }, 500);
-                }
-            });
-        }
-        else if (fwNum >= 11.50 && fwNum <= 12.02) {
-            loadScript("slopkit/chain_lapse.js", { module: true });
-        }
-        else if (fwNum >= 12.50 && fwNum <= 13.00) {
-            loadScript("slopkit/chain_poops.js", { module: true });
-        }
-        else if (fwNum >= 13.02 && fwNum <= 13.52) {
-            loadScript("slopkit/jb.js?v=10", { module: true });
-        }
-        else {
-            setMessage('<div class="error-box">إصدار النظام غير مدعوم: ' + fwVersion + '</div>');
-        }
-    };
-
-    // ===== عرض حالة الكاش عند البدء =====
-    if (supportsSW) {
-        caches.has(CACHE_NAME).then(function (exists) {
-            if (exists) {
-                setStatus('<div class="success-box">✅ الكاش موجود بالفعل — يمكنك التشغيل بدون إنترنت</div>');
-                btnStart.disabled = false;
-            } else {
-                setStatus('<span style="color:#ffcc00;">📥 اضغط "تثبيت الكاش" لتخزين الملفات للاستخدام بدون إنترنت</span>');
+                };
+                document.head.appendChild(script);
             }
-        });
+            else if (fwNum >= 11.50 && fwNum <= 12.02) {
+                var script = document.createElement('script');
+                script.type = 'module';
+                script.src = "slopkit/chain_lapse.js";
+                script.onerror = onScriptError;
+                document.head.appendChild(script);
+            }
+            else if (fwNum >= 12.50 && fwNum <= 13.00) {
+                var script = document.createElement('script');
+                script.type = 'module';
+                script.src = "slopkit/chain_poops.js";
+                script.onerror = onScriptError;
+                document.head.appendChild(script);
+            }
+            else if (fwNum >= 13.02 && fwNum <= 13.52) {
+                var script = document.createElement('script');
+                script.type = 'module';
+                script.src = "slopkit/jb.js?v=10";
+                script.onerror = onScriptError;
+                document.head.appendChild(script);
+            }
+        }
     }
 })();
 </script>
+
+<h1>هذا المتصفح يدعم جميع إصدارات بلايستيشن 4 من نظام 5.05 إلى نظام 13.52</h1>
+<hr>
+<br>
+<div id="loader" aria-label="جارٍ التحميل"><span></span></div>
+<h1 id="msgs">جارٍ تحميل GoldHEN v2.4b18.12 ... يرجى الانتظار</h1>
 
 </body>
 </html>
