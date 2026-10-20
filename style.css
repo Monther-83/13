@@ -1,0 +1,204 @@
+html {
+    background-image: url('bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #24272b;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1 {
+    text-shadow: 0 0 5px #ffd700, 0 0 12px #ffbf00, 0 0 24px #ff8c00, 0.1em 0.1em 0.2em #000;
+    font-size: 25px;
+    color: #ffd700;
+}
+
+a {
+    text-decoration: none;
+}
+
+#progress {
+    display: block;
+}
+
+#menu {
+    display: block;
+}
+
+#crypto {
+    display: none;
+}
+
+#tools {
+    display: none;
+}
+
+#lnx {
+    display: none;
+}
+
+#mods {
+    display: none;
+}
+
+.btn {
+    background-color: #003263;
+    color: white;
+    width: 227px;
+    height: 46px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-style: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #0069d9;
+}
+
+.btn-onln {
+    background-color: #076300;
+}
+
+.btn-onln:hover {
+    background-color: #18891b;
+}
+
+.btn-toolbox {
+    background-color: #ae2301;
+}
+
+.btn-toolbox:hover {
+    background-color: #d42a01;
+}
+
+.btn-multi {
+    background-color: #b8860b;
+}
+
+.btn-multi:hover {
+    background-color: #daa520;
+}
+
+/* Center the single remaining host option */
+.host-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90%, 420px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+.host-title {
+    margin: 0;
+    font-size: 24px;
+    color: #ffffff;
+}
+.host-center .btn {
+    margin: 0;
+    width: 260px;
+    max-width: 100%;
+    height: 54px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* Neon payload status: lower than screen center, with an animated spinner */
+\1
+    color: #ffd700 !important;
+    position: fixed;
+    top: 66%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 92%;
+    margin: 0 !important;
+    padding: 0 8px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 30px !important;
+    line-height: 1.45;
+    font-weight: 700;
+    text-shadow: 0 0 5px #ffd700, 0 0 12px #ffbf00, 0 0 24px #ff8c00, 2px 2px 4px #000;
+    z-index: 1000;\2
+.payload-spinner {
+    position: fixed;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    border: 5px solid rgba(255, 215, 0, 0.22);
+    border-top-color: #ffd700;
+    border-right-color: #ffbf00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8), inset 0 0 8px rgba(255, 191, 0, 0.18);
+    animation: payload-spin 0.8s linear infinite;
+    z-index: 1001;
+}
+@keyframes payload-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@media (max-height: 500px) {
+    .loading-message { top: 68%; font-size: 24px !important; }
+    .payload-spinner { top: 58%; width: 34px; height: 34px; margin: 0; }
+}
+
+
+/* Unified gold-neon status text for payload loading and offline-cache messages */
+#msgs, h1#msgs, .loading-message {
+    position: fixed !important;
+    top: 66% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 92% !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    color: #ffd700 !important;
+    font-size: 30px !important;
+    line-height: 1.45 !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 5px #ffd700, 0 0 12px #ffbf00, 0 0 24px #ff8c00, 2px 2px 4px #000 !important;
+    z-index: 1000 !important;
+}
+
+
+/* Gold-neon spinner for payload and cache status screens */
+.payload-spinner {
+    position: fixed;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    border: 5px solid rgba(255, 215, 0, 0.22);
+    border-top-color: #ffd700;
+    border-right-color: #ffbf00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8), inset 0 0 8px rgba(255, 191, 0, 0.18);
+    animation: payload-spin 0.8s linear infinite;
+    z-index: 1001;
+}
+@keyframes payload-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}

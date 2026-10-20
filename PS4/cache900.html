@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html manifest="900.manifest">
+<head>
+<title>منذر سونيي لصيانة الأجهزة الإلكترونية بصرة عشار شارع الكويت 009647700672595 MONTHER SONEEY</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<script>
+history.replaceState(null,null,'index.html');var histlength=history.length;history.go(-histlength);
+function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="جارٍ تثبيت التخزين المؤقت دون اتصال: " + Percent + "%";}
+function DisplayCacheProgress(){window.msgs.innerHTML="تم تثبيت التخزين المؤقت بنجاح ✔";setTimeout(function(){window.msgs.innerHTML="أغلق المتصفح ثم أعد فتحه...";},1500);}
+window.applicationCache.addEventListener("progress",DLProgress,false);
+window.applicationCache.oncached=function(e){DisplayCacheProgress();};
+window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+window.applicationCache.onerror=function(e){window.msgs.innerHTML="حدث خطأ أثناء تثبيت التخزين المؤقت! امسح بيانات المتصفح ثم أعد فتحه...";};
+</script>
+<h1> </h1>
+<br>
+<h1 id=msgs style="font-size: 30px;margin-top: 77px;margin-bottom: 455px;">بدء تثبيت التخزين المؤقت...</h1>
+
+<div class="payload-spinner" id="payload-spinner" aria-hidden="true"></div>
+<script>
+(function () {
+  var message = document.getElementById("msgs");
+  var spinner = document.getElementById("payload-spinner");
+  if (!message || !spinner) return;
+  function updateSpinner() {
+    var t = (message.innerText || message.textContent || "").toLowerCase();
+    var done = /تم تثبيت|أغلق المتصفح|خطأ|error|failed|loaded|نجاح/.test(t);
+    spinner.style.display = done ? "none" : "block";
+  }
+  updateSpinner();
+  if (window.MutationObserver) new MutationObserver(updateSpinner).observe(message, {childList:true, subtree:true, characterData:true});
+})();
+</script>
+
+</body>
+</html>
